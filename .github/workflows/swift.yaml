@@ -16,12 +16,9 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest]
-        swift: ["5.10"]
 
     steps:
-      - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
-        with:
-          swift-version: ${{ matrix.swift }}
+      - uses: swift-actions/setup-swift@v2
       - uses: actions/checkout@v4
       - name: Set up environment
         run: echo "GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}" >> $GITHUB_ENV
